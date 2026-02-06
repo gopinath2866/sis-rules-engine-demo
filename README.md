@@ -107,9 +107,7 @@ Templates to run engagements with minimal friction:
 - `docs/SIS_Intake_Form.md`
 
 ## Request Full Access
-To request access to the full operational SIS scanner for paid engagements, email:
-
-- `gopinath2866@gmail.com`
+To request access to the full operational SIS scanner for paid engagements, open a GitHub Issue titled `Access Request` using the issue template.
 
 ## Demo Limitations
 This public demo is intentionally scoped to example inputs and a reduced ruleset (`rules/demo.json`). For full production scanning and custom engagements, request access to the private release.
