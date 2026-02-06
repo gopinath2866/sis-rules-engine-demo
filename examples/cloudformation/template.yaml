@@ -1,0 +1,7 @@
+Resources:
+  ExampleASG:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      MinSize: 1
+      MaxSize: 3
+      DesiredCapacity: 1

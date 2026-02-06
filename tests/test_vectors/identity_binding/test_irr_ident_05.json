@@ -1,0 +1,15 @@
+{
+  "rule_id": "IRR-IDENT-05",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["kubernetes"],
+    "resource_kinds": ["ServiceAccount"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "metadata.annotations", "operator": "CONTAINS", "value": "iam.gke.io/gcp-service-account" }
+    ]
+  },
+  "message": "Workload identity bound to external cloud identity."
+}

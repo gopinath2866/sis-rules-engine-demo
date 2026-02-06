@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "static-irreversibility-scanner"
+version = "1.0.0"
+description = "Deterministic pattern scanner for irreversible infrastructure decisions"
+authors = [{name = "SIS Team"}]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.104.1",
+    "uvicorn[standard]==0.24.0",
+    "pydantic==2.5.0",
+    "python-multipart==0.0.6",
+    "pyyaml==6.0.1",
+    "python-hcl2==4.3.2",
+]
+
+[project.scripts]
+sis = "sis.cli:main"
+sis-api = "sis.main:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+select = ["E", "F", "I", "B", "C4", "W"]
+ignore = ["E501", "C901"]

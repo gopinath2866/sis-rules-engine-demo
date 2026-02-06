@@ -1,0 +1,16 @@
+{
+  "rule_id": "IRR-IDENT-04",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["terraform"],
+    "resource_kinds": ["aws_iam_role"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "assume_role_policy", "operator": "EXISTS", "value": "" },
+      { "path": "managed_policy_arns", "operator": "EXISTS", "value": "" }
+    ]
+  },
+  "message": "Custom IAM role bound to active principals."
+}

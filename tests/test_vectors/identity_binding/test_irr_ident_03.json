@@ -1,0 +1,16 @@
+{
+  "rule_id": "IRR-IDENT-03",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["kubernetes"],
+    "resource_kinds": ["ServiceAccount"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "automountServiceAccountToken", "operator": "EQUALS", "value": true },
+      { "path": "metadata.namespace", "operator": "EQUALS", "value": "kube-system" }
+    ]
+  },
+  "message": "Service account token mounted in system namespace."
+}

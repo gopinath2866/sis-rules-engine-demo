@@ -1,0 +1,120 @@
+{
+  "ruleset_version": "1.0.0-demo",
+  "rules": [
+    {
+      "rule_id": "IRR-IDENT-01",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "applies_to": { "file_types": ["terraform"], "resource_kinds": ["google_service_account"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [
+          { "path": "account_id", "operator": "REGEX", "value": ".*@.*\\.iam\\.gserviceaccount\\.com" }
+        ]
+      },
+      "message": "Service account bound at project or organization scope."
+    },
+    {
+      "rule_id": "IRR-IDENT-02",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "applies_to": { "file_types": ["terraform"], "resource_kinds": ["google_service_account_key", "aws_iam_access_key"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [{ "path": "id", "operator": "EXISTS", "value": "" }]
+      },
+      "message": "User-managed service account key creates irreversible credential surface."
+    },
+    {
+      "rule_id": "IRR-IDENT-03",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "applies_to": { "file_types": ["kubernetes"], "resource_kinds": ["ServiceAccount"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [
+          { "path": "automountServiceAccountToken", "operator": "EQUALS", "value": true },
+          { "path": "metadata.namespace", "operator": "EQUALS", "value": "kube-system" }
+        ]
+      },
+      "message": "Service account token mounted in system namespace."
+    },
+    {
+      "rule_id": "IRR-IDENT-07",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "applies_to": {
+        "file_types": ["terraform"],
+        "resource_kinds": ["aws_instance", "google_compute_instance"]
+      },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [{ "path": "service_account", "operator": "EXISTS", "value": "" }]
+      },
+      "message": "VM launched with fixed service account."
+    },
+    {
+      "rule_id": "IRR-DEC-01",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "applies_to": { "file_types": ["terraform"], "resource_kinds": ["*"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [{ "path": "deletion_protection", "operator": "EQUALS", "value": true }]
+      },
+      "message": "Resource has deletion protection enabled."
+    },
+    {
+      "rule_id": "IRR-DEC-02",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "applies_to": { "file_types": ["terraform"], "resource_kinds": ["*"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [{ "path": "lifecycle.prevent_destroy", "operator": "EQUALS", "value": true }]
+      },
+      "message": "Resource cannot be destroyed via IaC."
+    },
+    {
+      "rule_id": "IRR-DEC-08",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "applies_to": {
+        "file_types": ["terraform", "cloudformation"],
+        "resource_kinds": ["aws_autoscaling_group", "google_compute_autoscaler"]
+      },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [{ "path": "min_size", "operator": "GREATER_THAN", "value": "0" }]
+      },
+      "message": "Autoscaling floor enforces minimum existence."
+    },
+    {
+      "rule_id": "IRR-DEC-09",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "applies_to": { "file_types": ["terraform"], "resource_kinds": ["aws_cloudtrail"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [
+          { "path": "enable_log_file_validation", "operator": "EQUALS", "value": true }
+        ]
+      },
+      "message": "Audit trail immutability enforced."
+    },
+    {
+      "rule_id": "ADMIN-01",
+      "rule_type": "ADMIN_OVERRIDE_DEPENDENCY",
+      "applies_to": { "file_types": ["kubernetes"], "resource_kinds": ["ClusterRoleBinding"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [{ "path": "metadata.name", "operator": "EXISTS", "value": "" }]
+      },
+      "message": "ClusterRoleBinding requires cluster-admin to reverse."
+    },
+    {
+      "rule_id": "ADMIN-03",
+      "rule_type": "ADMIN_OVERRIDE_DEPENDENCY",
+      "applies_to": { "file_types": ["kubernetes"], "resource_kinds": ["*"] },
+      "detection": {
+        "match_logic": "ALL",
+        "conditions": [
+          { "path": "metadata.namespace", "operator": "EQUALS", "value": "kube-system" }
+        ]
+      },
+      "message": "System namespace resource requires elevated authority."
+    }
+  ]
+}

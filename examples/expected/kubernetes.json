@@ -1,0 +1,52 @@
+{
+  "target": "examples/kubernetes",
+  "rules": "rules/canonical.json",
+  "total_files": 1,
+  "findings": [
+    {
+      "rule_id": "IRR-IDENT-03",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "message": "Service account token mounted in system namespace.",
+      "resource_kind": "ServiceAccount",
+      "resource_name": "system-sa",
+      "file": "examples/kubernetes/manifest.yaml",
+      "line": 1
+    },
+    {
+      "rule_id": "ADMIN-03",
+      "rule_type": "ADMIN_OVERRIDE_DEPENDENCY",
+      "message": "System namespace resource requires elevated authority.",
+      "resource_kind": "ServiceAccount",
+      "resource_name": "system-sa",
+      "file": "examples/kubernetes/manifest.yaml",
+      "line": 1
+    },
+    {
+      "rule_id": "ADMIN-01",
+      "rule_type": "ADMIN_OVERRIDE_DEPENDENCY",
+      "message": "ClusterRoleBinding requires cluster-admin to reverse.",
+      "resource_kind": "ClusterRoleBinding",
+      "resource_name": "system-admin",
+      "file": "examples/kubernetes/manifest.yaml",
+      "line": 1
+    },
+    {
+      "rule_id": "ADMIN-03",
+      "rule_type": "ADMIN_OVERRIDE_DEPENDENCY",
+      "message": "System namespace resource requires elevated authority.",
+      "resource_kind": "ClusterRoleBinding",
+      "resource_name": "system-admin",
+      "file": "examples/kubernetes/manifest.yaml",
+      "line": 1
+    }
+  ],
+  "summary": {
+    "total_findings": 4,
+    "by_type": {
+      "IRREVERSIBLE_IDENTITY_BINDING": 1,
+      "IRREVERSIBLE_DECISION": 0,
+      "ADMIN_OVERRIDE_DEPENDENCY": 3
+    }
+  },
+  "errors": []
+}

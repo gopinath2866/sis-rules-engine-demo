@@ -1,0 +1,265 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/AdapterRegistry.sol": {
+      "lastModificationDate": 1769876332324,
+      "contentHash": "a9b096d21809d07c57cabc9187491eee",
+      "sourceName": "contracts/AdapterRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "AdapterRegistry"
+      ]
+    },
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/AgentVault.sol": {
+      "lastModificationDate": 1769876332325,
+      "contentHash": "50fe3b71c94b3756e1f016c3819f225f",
+      "sourceName": "contracts/AgentVault.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "AgentVault",
+        "IAdapterRegistry",
+        "IERC20",
+        "IEpochManager"
+      ]
+    },
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/DisputeModule.sol": {
+      "lastModificationDate": 1769876332326,
+      "contentHash": "a81ca475508dd57b8cdeee33e6fa930c",
+      "sourceName": "contracts/DisputeModule.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "DisputeModule",
+        "IReceiptRegistry"
+      ]
+    },
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/EpochManager.sol": {
+      "lastModificationDate": 1769876332326,
+      "contentHash": "a78c89e396744c5d780ece2b257eda47",
+      "sourceName": "contracts/EpochManager.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "EpochManager",
+        "IAgentVault"
+      ]
+    },
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/FeeSplitter.sol": {
+      "lastModificationDate": 1769876332327,
+      "contentHash": "bf9aae56a9a75f08e358a2d8003b6dcb",
+      "sourceName": "contracts/FeeSplitter.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "FeeSplitter",
+        "IAgentVault",
+        "IPerfToken"
+      ]
+    },
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/ReceiptRegistry.sol": {
+      "lastModificationDate": 1769876332327,
+      "contentHash": "e4a38f0e65c2b90ce6834129dc47f7e2",
+      "sourceName": "contracts/ReceiptRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IEpochManager",
+        "ReceiptRegistry"
+      ]
+    },
+    "/Users/sahilraj/29/frozen-kernel-hardhat/contracts/TestToken.sol": {
+      "lastModificationDate": 1769877894087,
+      "contentHash": "1e60952c4af3ff40c174a89d5cdb344b",
+      "sourceName": "contracts/TestToken.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.21"
+      ],
+      "artifacts": [
+        "TestToken"
+      ]
+    }
+  }
+}

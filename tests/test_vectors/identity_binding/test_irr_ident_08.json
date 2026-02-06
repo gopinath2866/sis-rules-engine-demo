@@ -1,0 +1,15 @@
+{
+  "rule_id": "IRR-IDENT-08",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["terraform"],
+    "resource_kinds": ["google_project_iam_member"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "project", "operator": "EXISTS", "value": "" }
+    ]
+  },
+  "message": "IAM binding introduces cross-project identity dependency."
+}

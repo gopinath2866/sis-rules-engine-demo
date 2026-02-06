@@ -1,0 +1,15 @@
+{
+  "rule_id": "IRR-IDENT-02",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["terraform"],
+    "resource_kinds": ["google_service_account_key", "aws_iam_access_key"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "id", "operator": "EXISTS", "value": "" }
+    ]
+  },
+  "message": "User-managed service account key creates irreversible credential surface."
+}

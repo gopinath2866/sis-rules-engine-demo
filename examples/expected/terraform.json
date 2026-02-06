@@ -1,0 +1,88 @@
+{
+  "target": "examples/terraform",
+  "rules": "rules/canonical.json",
+  "total_files": 1,
+  "findings": [
+    {
+      "rule_id": "IRR-IDENT-01",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "message": "Service account bound at project or organization scope.",
+      "resource_kind": "google_service_account",
+      "resource_name": "gsa",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-IDENT-02",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "message": "User-managed service account key creates irreversible credential surface.",
+      "resource_kind": "aws_iam_access_key",
+      "resource_name": "user_key",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-IDENT-07",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "message": "VM launched with fixed service account.",
+      "resource_kind": "aws_instance",
+      "resource_name": "web",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-DEC-02",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "message": "Resource cannot be destroyed via IaC.",
+      "resource_kind": "aws_instance",
+      "resource_name": "web",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-DEC-01",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "message": "Resource has deletion protection enabled.",
+      "resource_kind": "google_compute_instance",
+      "resource_name": "vm",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-IDENT-07",
+      "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+      "message": "VM launched with fixed service account.",
+      "resource_kind": "google_compute_instance",
+      "resource_name": "vm",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-DEC-09",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "message": "Audit trail immutability enforced.",
+      "resource_kind": "aws_cloudtrail",
+      "resource_name": "audit",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    },
+    {
+      "rule_id": "IRR-DEC-08",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "message": "Autoscaling floor enforces minimum existence.",
+      "resource_kind": "aws_autoscaling_group",
+      "resource_name": "asg",
+      "file": "examples/terraform/main.tf",
+      "line": 1
+    }
+  ],
+  "summary": {
+    "total_findings": 8,
+    "by_type": {
+      "IRREVERSIBLE_IDENTITY_BINDING": 4,
+      "IRREVERSIBLE_DECISION": 4,
+      "ADMIN_OVERRIDE_DEPENDENCY": 0
+    }
+  },
+  "errors": []
+}

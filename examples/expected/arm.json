@@ -1,0 +1,15 @@
+{
+  "target": "examples/arm",
+  "rules": "rules/canonical.json",
+  "total_files": 1,
+  "findings": [],
+  "summary": {
+    "total_findings": 0,
+    "by_type": {
+      "IRREVERSIBLE_IDENTITY_BINDING": 0,
+      "IRREVERSIBLE_DECISION": 0,
+      "ADMIN_OVERRIDE_DEPENDENCY": 0
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,25 @@
+{
+  "target": "examples/cloudformation",
+  "rules": "rules/canonical.json",
+  "total_files": 1,
+  "findings": [
+    {
+      "rule_id": "IRR-DEC-08",
+      "rule_type": "IRREVERSIBLE_DECISION",
+      "message": "Autoscaling floor enforces minimum existence.",
+      "resource_kind": "aws_autoscaling_group",
+      "resource_name": "ExampleASG",
+      "file": "examples/cloudformation/template.yaml",
+      "line": 1
+    }
+  ],
+  "summary": {
+    "total_findings": 1,
+    "by_type": {
+      "IRREVERSIBLE_IDENTITY_BINDING": 0,
+      "IRREVERSIBLE_DECISION": 1,
+      "ADMIN_OVERRIDE_DEPENDENCY": 0
+    }
+  },
+  "errors": []
+}

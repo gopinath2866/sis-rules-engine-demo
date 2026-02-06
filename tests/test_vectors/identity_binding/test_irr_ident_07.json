@@ -1,0 +1,15 @@
+{
+  "rule_id": "IRR-IDENT-07",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["terraform"],
+    "resource_kinds": ["aws_instance", "google_compute_instance"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "service_account", "operator": "EXISTS", "value": "" }
+    ]
+  },
+  "message": "VM launched with fixed service account."
+}

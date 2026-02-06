@@ -1,0 +1,15 @@
+{
+  "rule_id": "IRR-DEC-02",
+  "rule_type": "IRREVERSIBLE_DECISION",
+  "applies_to": {
+    "file_types": ["terraform"],
+    "resource_kinds": ["*"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "lifecycle.prevent_destroy", "operator": "EQUALS", "value": true }
+    ]
+  },
+  "message": "Resource cannot be destroyed via IaC."
+}

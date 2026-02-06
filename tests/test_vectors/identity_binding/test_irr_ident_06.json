@@ -1,0 +1,15 @@
+{
+  "rule_id": "IRR-IDENT-06",
+  "rule_type": "IRREVERSIBLE_IDENTITY_BINDING",
+  "applies_to": {
+    "file_types": ["terraform"],
+    "resource_kinds": ["aws_lambda_function", "google_cloudfunctions_function"]
+  },
+  "detection": {
+    "match_logic": "ALL",
+    "conditions": [
+      { "path": "service_account_email", "operator": "EXISTS", "value": "" }
+    ]
+  },
+  "message": "Runtime explicitly bound to service account."
+}
