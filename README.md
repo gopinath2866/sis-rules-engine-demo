@@ -19,6 +19,37 @@ Run the API server:
 sis-api
 ```
 
+## Paid SIS Scanner Access (Full Core)
+The public demo uses a reduced ruleset and example inputs only. Full private core
+(expanded rules, deeper IaC coverage, API gating) is available via license token.
+
+**License Token Format**
+`LICENSE-<ID>-VALIDUNTIL-YYYYMMDD` (e.g., `LICENSE-ABC123-VALIDUNTIL-20261231`)
+
+**How to Use (Full Core)**
+```bash
+# CLI (full core)
+export SIS_LICENSE="LICENSE-TEST123-VALIDUNTIL-20261231"
+sis scan -t /path/to/iac --format json
+```
+
+```bash
+# API (full core)
+curl -X POST "http://localhost:8000/v1/scan" \
+  -H "X-SIS-License: LICENSE-TEST123-VALIDUNTIL-20261231" \
+  -H "Content-Type: application/json" \
+  -d '{"scan_id": "local-test", "files": []}'
+```
+
+**Obtain a Token / Full Access**
+- DM `@SignalOrient` on X for scoping/pricing or a trial token.
+- Or open a GitHub Issue titled `Access Request`.
+- See `docs/SIS_Pricing.md` for pilot guidance.
+
+Security notes (full core):
+- Prefer header auth to avoid tokens in URLs/logs.
+- Token validation is local and deterministic (no external calls).
+
 ## CLI Usage
 
 ```bash
@@ -107,7 +138,7 @@ Templates to run engagements with minimal friction:
 - `docs/SIS_Intake_Form.md`
 
 ## Request Full Access
-To request access to the full operational SIS scanner for paid engagements, open a GitHub Issue titled `Access Request` using the issue template.
+To request access to the full operational SIS scanner for paid engagements, DM `@SignalOrient` on X or open a GitHub Issue titled `Access Request` using the issue template.
 
 ## Demo Limitations
 This public demo is intentionally scoped to example inputs and a reduced ruleset (`rules/demo.json`). For full production scanning and custom engagements, request access to the private release.
