@@ -1,9 +1,26 @@
-# Static Irreversibility Scanner (SIS) v1.0.0 — Public Demo
+# SIS — Static Irreversibility Scanner
 
-Deterministic pattern scanner for irreversible infrastructure decisions.
+SIS analyzes infrastructure configurations such as Kubernetes and Terraform to detect decisions that are hard to reverse or require elevated authority.
 
-## What It Does
-SIS scans infrastructure-as-code manifests to surface irreversible actions, identity bindings, and admin override dependencies before they ship. It is rule-driven, deterministic, and produces JSON/text outputs suitable for CI, audits, and consulting engagements.
+## Why This Matters
+Some configurations create hidden constraints:
+- require cluster-admin or elevated permissions to modify later
+- introduce dependencies that are difficult to remove
+- make rollback or future changes risky
+
+These issues are often not visible during initial deployment.
+
+## What SIS Finds
+- RBAC bindings that require admin authority to reverse
+- service account or system-level dependencies
+- configurations that reduce future operational flexibility
+
+## What This Is Not
+- Not a rules engine
+- Not a generic security scanner
+- Not a workflow system
+
+This is a structural risk analysis layer focused on reversibility and authority constraints.
 
 ## Quick Start
 Install dependencies and run a local scan.
