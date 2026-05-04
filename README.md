@@ -1,3 +1,4 @@
+Detects infrastructure decisions that are hard to reverse or require elevated authority.
 # SIS — Static Irreversibility Scanner
 
 SIS analyzes infrastructure configurations such as Kubernetes and Terraform to detect decisions that are hard to reverse or require elevated authority.
