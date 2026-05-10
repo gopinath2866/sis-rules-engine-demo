@@ -23,6 +23,16 @@ These issues are often not visible during initial deployment.
 
 This is a structural risk analysis layer focused on reversibility and authority constraints.
 
+## Example Finding
+RULE: `cluster-admin-reversal-dependency`  
+Resource: `ClusterRoleBinding/metrics-server-auth-reader`
+
+Reason:
+This binding introduces a cluster-scoped authority dependency. Future rollback or modification requires elevated cluster privileges.
+
+Risk:
+Operational reversibility decreases over time as additional components depend on this binding.
+
 ## Quick Start
 Install dependencies and run a local scan.
 
@@ -36,37 +46,6 @@ Run the API server:
 ```bash
 sis-api
 ```
-
-## Paid SIS Scanner Access (Full Core)
-The public demo uses a reduced ruleset and example inputs only. Full private core
-(expanded rules, deeper IaC coverage, API gating) is available via license token.
-
-**License Token Format**
-`LICENSE-<ID>-VALIDUNTIL-YYYYMMDD` (e.g., `LICENSE-ABC123-VALIDUNTIL-20261231`)
-
-**How to Use (Full Core)**
-```bash
-# CLI (full core)
-export SIS_LICENSE="LICENSE-TEST123-VALIDUNTIL-20261231"
-sis scan -t /path/to/iac --format json
-```
-
-```bash
-# API (full core)
-curl -X POST "http://localhost:8000/v1/scan" \
-  -H "X-SIS-License: LICENSE-TEST123-VALIDUNTIL-20261231" \
-  -H "Content-Type: application/json" \
-  -d '{"scan_id": "local-test", "files": []}'
-```
-
-**Obtain a Token / Full Access**
-- DM `@SignalOrient` on X for scoping/pricing or a trial token.
-- Or open a GitHub Issue titled `Access Request`.
-- See `docs/SIS_Pricing.md` for pilot guidance.
-
-Security notes (full core):
-- Prefer header auth to avoid tokens in URLs/logs.
-- Token validation is local and deterministic (no external calls).
 
 ## CLI Usage
 
@@ -161,6 +140,37 @@ To request access to the full operational SIS scanner for paid engagements, DM `
 ## Demo Limitations
 This public demo is intentionally scoped to example inputs and a reduced ruleset (`rules/demo.json`). For full production scanning and custom engagements, request access to the private release.
 
+## Paid SIS Scanner Access (Full Core)
+The public demo uses a reduced ruleset and example inputs only. Full private core
+(expanded rules, deeper IaC coverage, API gating) is available via license token.
+
+**License Token Format**
+`LICENSE-<ID>-VALIDUNTIL-YYYYMMDD` (e.g., `LICENSE-ABC123-VALIDUNTIL-20261231`)
+
+**How to Use (Full Core)**
+```bash
+# CLI (full core)
+export SIS_LICENSE="LICENSE-TEST123-VALIDUNTIL-20261231"
+sis scan -t /path/to/iac --format json
+```
+
+```bash
+# API (full core)
+curl -X POST "http://localhost:8000/v1/scan" \
+  -H "X-SIS-License: LICENSE-TEST123-VALIDUNTIL-20261231" \
+  -H "Content-Type: application/json" \
+  -d '{"scan_id": "local-test", "files": []}'
+```
+
+**Obtain a Token / Full Access**
+- DM `@SignalOrient` on X for scoping/pricing or a trial token.
+- Or open a GitHub Issue titled `Access Request`.
+- See `docs/SIS_Pricing.md` for pilot guidance.
+
+Security notes (full core):
+- Prefer header auth to avoid tokens in URLs/logs.
+- Token validation is local and deterministic (no external calls).
+
 ## Project Structure
 - `src/sis/engine.py`: deterministic rule engine
 - `src/sis/parsers/`: format parsers (demo scope)
@@ -169,4 +179,4 @@ This public demo is intentionally scoped to example inputs and a reduced ruleset
 - `tests/`: unit tests
 
 ## Status
-Operational for deterministic scans with minimal parsers. Extend rules and add custom mappings as needed.
+SIS currently focuses on deterministic analysis of Kubernetes and Terraform-style infrastructure configurations, with additional parsers and rules evolving incrementally.
