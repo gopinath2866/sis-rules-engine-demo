@@ -135,7 +135,7 @@ Templates to run engagements with minimal friction:
 - `docs/SIS_Intake_Form.md`
 
 ## Request Full Access
-To request access to the full operational SIS scanner for paid engagements, DM `@SignalOrient` on X or open a GitHub Issue titled `Access Request` using the issue template.
+To request access to the full operational SIS scanner for paid engagements, email `gopi0nath2929@gmail.com` or open a GitHub Issue titled `Access Request` using the issue template.
 
 ## Demo Limitations
 This public demo is intentionally scoped to example inputs and a reduced ruleset (`rules/demo.json`). For full production scanning and custom engagements, request access to the private release.
@@ -163,7 +163,7 @@ curl -X POST "http://localhost:8000/v1/scan" \
 ```
 
 **Obtain a Token / Full Access**
-- DM `@SignalOrient` on X for scoping/pricing or a trial token.
+- Email `gopi0nath2929@gmail.com` for scoping, pricing, or a trial token.
 - Or open a GitHub Issue titled `Access Request`.
 - See `docs/SIS_Pricing.md` for pilot guidance.
 
