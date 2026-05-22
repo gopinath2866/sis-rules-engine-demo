@@ -90,6 +90,9 @@ sis scan -t examples/terraform --format json -o /tmp/sis-scan.json
 sis report -i /tmp/sis-scan.json -o /tmp/sis-report.md
 ```
 
+Sample operator-facing report:
+- `examples/output/kubernetes_report.md`
+
 ## Docker
 Build the container and run scans without local Python setup.
 

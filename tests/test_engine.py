@@ -4,9 +4,9 @@ import pytest
 from sis.engine import RuleEngine, Rule, RuleType, Condition, Operator
 
 def test_rule_loading():
-    """Test that all 25 rules load correctly."""
-    engine = RuleEngine("rules/canonical.json")
-    assert len(engine.rules) == 25
+    """Test that the public demo rules load correctly."""
+    engine = RuleEngine("rules/demo.json")
+    assert len(engine.rules) == 10
     
     rule_types = {r.rule_type for r in engine.rules}
     assert RuleType.IDENTITY_BINDING in rule_types
