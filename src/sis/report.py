@@ -82,6 +82,19 @@ def _operator_pattern(finding: Dict[str, Any]) -> str:
     return "Operational constraint"
 
 
+def _recovery_dependency(finding: Dict[str, Any]) -> str | None:
+    rule_type = _safe(finding.get("rule_type"))
+    rule_id = _safe(finding.get("rule_id"))
+
+    if rule_type != "ADMIN_OVERRIDE_DEPENDENCY":
+        return None
+
+    if rule_id == "ADMIN-01":
+        return "Rollback or emergency policy changes may rely on cluster-admin access being available."
+
+    return "Mitigation, restart, or rollback actions may depend on elevated access during failure handling."
+
+
 def _render_operator_impacts(findings: List[Dict[str, Any]]) -> List[str]:
     lines = ["## Operator Impact", ""]
     if not findings:
@@ -96,6 +109,9 @@ def _render_operator_impacts(findings: List[Dict[str, Any]]) -> List[str]:
         lines.append(f"- Rule: `{_safe(finding.get('rule_id'))}`")
         lines.append(f"- Pattern: {_operator_pattern(finding)}")
         lines.append(f"- Impact: {_operator_impact(finding)}")
+        recovery_dependency = _recovery_dependency(finding)
+        if recovery_dependency:
+            lines.append(f"- Recovery dependency: {recovery_dependency}")
         lines.append("")
     return lines
 

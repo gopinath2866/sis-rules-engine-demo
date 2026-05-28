@@ -1,6 +1,6 @@
 # SIS Scan Report
 
-Generated: 2026-05-22T12:01:31.342103Z
+Generated: 2026-05-28T02:22:31.188498Z
 
 ## Scan Context
 
@@ -42,18 +42,21 @@ By type:
 - Rule: `ADMIN-03`
 - Pattern: Elevated-access dependency
 - Impact: Operational changes may depend on elevated access, which can slow mitigation or rollback.
+- Recovery dependency: Mitigation, restart, or rollback actions may depend on elevated access during failure handling.
 
 ### `ClusterRoleBinding:system-admin`
 
 - Rule: `ADMIN-01`
 - Pattern: Authority dependency
 - Impact: Future rollback or policy change may depend on cluster-admin access.
+- Recovery dependency: Rollback or emergency policy changes may rely on cluster-admin access being available.
 
 ### `ClusterRoleBinding:system-admin`
 
 - Rule: `ADMIN-03`
 - Pattern: Elevated-access dependency
 - Impact: Operational changes may depend on elevated access, which can slow mitigation or rollback.
+- Recovery dependency: Mitigation, restart, or rollback actions may depend on elevated access during failure handling.
 
 ## Errors
 
