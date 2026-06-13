@@ -166,7 +166,7 @@ curl -X POST "http://localhost:8000/v1/scan" \
 ```
 
 **Obtain a Token / Full Access**
-- Email `signalorient.infra@gmail.com` for scoping, pricing, or a trial token.
+- Email `gopinathaum@gmail.com` for scoping, pricing, or a trial token.
 - Or open a GitHub Issue titled `Access Request`.
 - See `docs/SIS_Pricing.md` for pilot guidance.
 
