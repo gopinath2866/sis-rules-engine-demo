@@ -16,6 +16,22 @@ These issues are often not visible during initial deployment.
 - service account or system-level dependencies
 - configurations that reduce future operational flexibility
 
+## Start With The Artifact
+
+SIS is easiest to understand through its report output, not through the scanner mechanics.
+
+Sample operator-facing report:
+
+- [examples/output/kubernetes_report.md](examples/output/kubernetes_report.md)
+
+The useful question is not only:
+
+`Does this dependency exist?`
+
+The stronger question is:
+
+`What recovery, rollback, ownership, or escalation action becomes harder if this dependency fails?`
+
 ## What This Is Not
 - Not a rules engine
 - Not a generic security scanner
